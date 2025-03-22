@@ -1,4 +1,3 @@
-TODO 1 : practice detecting face muna
 TODO 2 : learn how to detect the eyes
 TODO 3 : check if nakapikit ba 
 TODO 4 : integrate with arduino pag nakapikit mag alarm ka
