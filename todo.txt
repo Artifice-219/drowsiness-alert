@@ -1,5 +1,5 @@
-TODO 2 : learn how to detect the eyes
 TODO 3 : check if nakapikit ba 
 TODO 4 : integrate with arduino pag nakapikit mag alarm ka
 TODO 5 : check kapag naka tingin sa malayo
 TODO 7 : integrate with arduino pag nakapikit mag alarm ka
+TODO 8 : there is a bug on how lines are drawn on the eyes
