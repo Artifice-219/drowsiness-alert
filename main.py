@@ -2,7 +2,12 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import time
-
+import serial
+import time
+# for the arduino setup
+arduino = serial.Serial(port ='COM3', baudrate=9600, timeout=1)
+# wait for the connection to be established
+time.sleep(2)
 # Initialize MediaPipe
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(refine_landmarks=True)
@@ -71,8 +76,12 @@ while True:
                 frame_counter += 1
                 if frame_counter >= CLOSED_EYE_FRAMES:
                     cv2.putText(frame, "DROWSINESS ALERT!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
+                    # sedn signal to arduino
+                    arduino.write(b'1')
             else:
                 frame_counter = 0  # Reset counter if eyes are open
+                # signal the arduino to stop the buzzer
+                arduino.write(b'0')
 
             # Display EAR on screen
             cv2.putText(frame, f"EAR: {avg_EAR:.2f}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
